@@ -1,27 +1,21 @@
-import HeroSection from '@/components/HeroSection';
-import PartnersSection from '@/components/PartnersSection';
-import ServicesSection from '@/components/ServicesSection';
-import MissionSection from '@/components/MissionSection';
-import DetailedServicesSection from '@/components/DetailedServicesSection';
-import ProcessSection from '@/components/ProcessSection';
-import SecteursSection from '@/components/SecteursSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import FAQSection from '@/components/FAQSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
+import Header from '@/components/layout/Header';
+import HeroSection from '@/components/home/HeroSection';
+import PartnersSection from '@/components/home/PartnersSection';
+import ServicesSection from '@/components/home/ServicesSection';
+import MissionSection from '@/components/home/MissionSection';
+import TestimonialsSection from '@/components/home/TestimonialsSection';
+import ContactSection from '@/components/home/ContactSection';
+import Footer from '@/components/layout/Footer';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
+      <Header />
       <HeroSection />
       <PartnersSection />
       <ServicesSection />
       <MissionSection />
-      <DetailedServicesSection />
-      <ProcessSection />
-      <SecteursSection />
       <TestimonialsSection />
-      <FAQSection />
       <ContactSection />
       <Footer />
     </div>
