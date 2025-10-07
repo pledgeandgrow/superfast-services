@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react';
-import { TrendingUp, Users, Globe, Package, Award, Clock } from 'lucide-react';
+import { TrendingUp, Globe, Package } from 'lucide-react';
 
 const stats = [
   {

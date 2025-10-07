@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react'
-import { Plane, Truck, Boxes, Package, ArrowRight, Clock, Globe2, Shield, CheckCircle } from 'lucide-react'
+import { Plane, Truck, Boxes, Package, ArrowRight, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 
 const services = [

@@ -50,7 +50,7 @@ export default function ServicesHero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
             Des solutions sur mesure pour tous vos besoins en transport et logistique internationale. 
-            De l'express aérien aux grands projets, nous avons l'expertise pour réussir.
+            De l&apos;express aérien aux grands projets, nous avons l&apos;expertise pour réussir.
           </motion.p>
 
           <motion.div

@@ -119,7 +119,7 @@ export default function ServicesProcess() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center">
           <p className="text-lg text-gray-600 mb-6">
-            Commencez votre projet logistique dès aujourd'hui
+            Commencez votre projet logistique dès aujourd&apos;hui
           </p>
           <a
             href="/contact"

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Menu, X, ChevronRight } from 'lucide-react'
@@ -18,8 +17,6 @@ export default function Header() {
   const [menuState, setMenuState] = React.useState(false)
   const [scrolled, setScrolled] = React.useState(false)
   const { scrollYProgress } = useScroll()
-  const router = useRouter()
-  const pathname = usePathname()
 
   React.useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
