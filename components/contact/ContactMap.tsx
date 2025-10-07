@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react';
-import { MapPin, Navigation } from 'lucide-react';
+import { MapPin, Phone, MessageSquare } from 'lucide-react';
 
 export default function ContactMap() {
   return (
@@ -20,77 +20,11 @@ export default function ContactMap() {
             Notre <span className="text-blue-600">Localisation</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Visitez nos bureaux à Dubai ou contactez-nous pour planifier une rencontre
+            Présents à Dubai, au Tchad et en France pour vous servir partout dans le monde
           </p>
         </motion.div>
 
-        {/* Map Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
-          {/* Placeholder Map - Replace with actual Google Maps embed */}
-          <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-blue-100 to-indigo-100">
-            {/* Map Placeholder */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-blue-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Dubai, UAE</h3>
-                <p className="text-gray-600 mb-6">Business Bay Area</p>
-                <a
-                  href="https://maps.google.com/?q=Dubai+UAE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg">
-                  <Navigation className="w-5 h-5" />
-                  Ouvrir dans Google Maps
-                </a>
-              </div>
-            </div>
-
-            {/* You can replace the above placeholder with actual Google Maps iframe */}
-            {/* 
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            */}
-          </div>
-
-          {/* Location Info Overlay */}
-          <div className="absolute bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96">
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-gray-200">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-900 mb-1">Superfast Services</h4>
-                  <p className="text-sm text-gray-600 mb-3">
-                    Business Bay<br />
-                    Dubai, UAE
-                  </p>
-                  <div className="flex gap-2">
-                    <a
-                      href="tel:+971545116447"
-                      className="text-sm text-blue-600 hover:text-blue-700 font-semibold">
-                      +971 54 511 6447
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Additional Locations */}
+        {/* Locations */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,17 +32,66 @@ export default function ContactMap() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-12 grid md:grid-cols-3 gap-6">
           {[
-            { city: 'Dubai', country: 'UAE', type: 'Siège Principal' },
-            { city: 'Abu Dhabi', country: 'UAE', type: 'Bureau Régional' },
-            { city: 'Sharjah', country: 'UAE', type: 'Centre Logistique' },
+            { 
+              city: 'Dubai', 
+              country: 'UAE', 
+              type: 'Siège Principal',
+              phone: '+971545116447',
+              features: ['Appels', 'Messages', 'WhatsApp']
+            },
+            { 
+              city: 'Tchad', 
+              country: 'Afrique Centrale', 
+              type: 'Bureau Régional',
+              phone: '+23560053886',
+              features: ['Appels', 'Messages', 'WhatsApp']
+            },
+            { 
+              city: 'France', 
+              country: 'Europe', 
+              type: 'Bureau Europe',
+              phone: '+33756859252',
+              features: ['Appels', 'Messages']
+            },
           ].map((location, index) => (
-            <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300">
-              <MapPin className="w-8 h-8 text-blue-600 mb-3" />
+            <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300 group">
+              <MapPin className="w-8 h-8 text-blue-600 mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h4 className="font-bold text-gray-900 mb-1">{location.city}</h4>
-              <p className="text-sm text-gray-600 mb-2">{location.country}</p>
-              <span className="inline-block text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-full font-semibold">
+              <p className="text-sm text-gray-600 mb-3">{location.country}</p>
+              <span className="inline-block text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-full font-semibold mb-4">
                 {location.type}
               </span>
+              
+              {/* Contact Info */}
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <a 
+                  href={`tel:${location.phone}`}
+                  className="flex items-center gap-2 text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors mb-3">
+                  <Phone className="w-4 h-4" />
+                  {location.phone}
+                </a>
+                
+                {/* Features */}
+                <div className="flex flex-wrap gap-2">
+                  {location.features.map((feature, idx) => (
+                    <span key={idx} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-md">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* WhatsApp Button if available */}
+                {location.features.includes('WhatsApp') && (
+                  <a
+                    href={`https://wa.me/${location.phone.replace(/\+/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-flex items-center gap-2 text-sm text-green-600 hover:text-green-700 font-semibold transition-colors">
+                    <MessageSquare className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </motion.div>

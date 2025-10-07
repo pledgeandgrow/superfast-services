@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Globe } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
 const contactDetails = [
   {
@@ -35,12 +35,6 @@ const contactDetails = [
     href: '#',
     color: 'from-pink-500 to-pink-600',
   },
-];
-
-const socialLinks = [
-  { name: 'WhatsApp', icon: MessageCircle, href: 'https://wa.me/+971545116447', color: 'hover:bg-green-500' },
-  { name: 'LinkedIn', icon: Globe, href: '#', color: 'hover:bg-blue-600' },
-  { name: 'Instagram', icon: Globe, href: '#', color: 'hover:bg-pink-500' },
 ];
 
 export default function ContactInfo() {
@@ -91,55 +85,6 @@ export default function ContactInfo() {
         ))}
       </div>
 
-      {/* Social Media */}
-      <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white">
-        <h3 className="text-xl font-bold mb-4">Suivez-nous</h3>
-        <p className="text-blue-100 mb-6">
-          Restez connecté avec nous sur les réseaux sociaux pour les dernières actualités et offres.
-        </p>
-        <div className="flex gap-3">
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center ${social.color} transition-all duration-300 hover:scale-110`}
-              aria-label={social.name}>
-              <social.icon className="w-5 h-5" />
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Emergency Contact */}
-      <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6">
-        <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center flex-shrink-0">
-            <Phone className="w-6 h-6 text-white" />
-          </div>
-          <div>
-            <h3 className="font-bold text-red-900 mb-2">Urgence 24/7</h3>
-            <p className="text-red-700 text-sm mb-3">
-              Pour les urgences logistiques, notre équipe est disponible 24h/24 et 7j/7.
-            </p>
-            <div className="flex gap-2">
-              <a 
-                href="tel:+971545116447"
-                className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">
-                <Phone className="w-4 h-4" />
-                Dubai
-              </a>
-              <a 
-                href="tel:+23560053886"
-                className="inline-flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-colors">
-                <Phone className="w-4 h-4" />
-                Tchad
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </motion.div>
   );
 }
